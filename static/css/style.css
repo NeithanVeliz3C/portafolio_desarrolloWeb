@@ -1,3 +1,188 @@
-nav{
-    background-color: #95a0a2;
+/*
+    ESTILOS PERSONALIZADOS (Tema Claro Fijo)
+    Uso de display: flex y efectos hover
+*/
+
+/* Variables CSS para Tema Claro (Fijo) */
+:root {
+    --color-principal: #007bff; /* Azul de énfasis */
+    --color-fondo-principal: #ffffff; /* Blanco para fondo */
+    --color-fondo-secundario: #f8f9fa; /* Gris claro para bloques */
+    --color-texto-principal: #212529; /* Negro para texto */
+    --color-texto-secundario: #6c757d; /* Gris para texto de soporte */
+    --color-nav-fondo: rgba(255, 255, 255, 0.95);
+    --color-sombra: rgba(0, 0, 0, 0.1);
+}
+
+/* Base Body y transición */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-texto-principal);
+    background-color: var(--color-fondo-principal);
+    /* Se elimina la transición de color/fondo, pero se mantiene la fuente */
+    line-height: 1.7;
+    /* Ajuste para el scroll suave */
+    scroll-padding-top: 70px; 
+}
+
+/* --- Navegación --- */
+#barra-navegacion {
+    background-color: var(--color-nav-fondo);
+    box-shadow: 0 2px 4px var(--color-sombra);
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid var(--color-fondo-secundario);
+}
+
+.navbar-brand, .nav-link {
+    color: var(--color-texto-principal) !important;
+}
+
+.nav-link.activo {
+    color: var(--color-principal) !important;
+    border-bottom: 2px solid var(--color-principal);
+}
+
+.nav-link:hover {
+    color: var(--color-principal) !important;
+}
+
+/* --- Contenedor Principal (Bloques) --- */
+.container-bloques {
+    max-width: 1000px;
+    margin: auto;
+    padding-top: 70px;
+}
+
+/* Estilo de Bloque General */
+.bloque-seccion {
+    margin-bottom: 30px;
+}
+
+/* Estilo de Contenido dentro del Bloque (tarjetas, etc.) */
+.bloque-contenido {
+    background-color: var(--color-fondo-secundario);
+    border-radius: 8px;
+    border: 1px solid var(--color-sombra);
+    transition: background-color 0.5s;
+    box-shadow: 0 4px 6px var(--color-sombra);
+}
+
+/* Estilo específico para la sección Home (Inicio) */
+#inicio {
+    /* Uso de display: flex para centrar el contenido (Requisito 4) */
+    display: flex; 
+    /* Altura total de la ventana (viewport) */
+    min-height: 100vh;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+/* Estilos de Tipografía */
+.titulo-seccion {
+    font-weight: 700;
+    color: var(--color-principal);
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.titulo-bloque {
+    font-weight: 600;
+    color: var(--color-principal);
+}
+
+/* --- Efectos HOVER con CSS (Requisito 6) --- */
+
+/* Hover en el Botón CTA (Llamada a la Acción) */
+.cta-btn {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+    transform: scale(1.05);
+    background-color: var(--color-secundario); /* Cambia a gris de Bootstrap en hover */
+    border-color: var(--color-secundario);
+}
+
+/* Tarjetas de Portafolio (Tarjeta entera) */
+.tarjeta-portafolio {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.tarjeta-portafolio:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem var(--color-sombra) !important;
+    border-color: var(--color-principal);
+}
+
+/* --- Timeline de Experiencia --- */
+.timeline {
+    position: relative;
+    padding: 0 0 0 30px; /* Espacio para la línea vertical */
+}
+
+/* Línea vertical */
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: var(--color-principal);
+    top: 0;
+    bottom: 0;
+    left: 10px;
+}
+
+/* Ítem del Timeline */
+.timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+/* Círculo en la línea */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--color-principal);
+    border: 2px solid var(--color-fondo-principal);
+    left: -33px; /* Alinea con la línea vertical */
+    top: 20px;
+    z-index: 1;
+}
+
+.timeline-date {
+    background-color: var(--color-principal);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+}
+
+/* --- Contacto --- */
+.link-contacto {
+    color: var(--color-principal);
+    text-decoration: none;
+}
+.link-contacto:hover {
+    text-decoration: underline;
+}
+
+/* Íconos de Redes con efecto JS hover */
+.icono-red {
+    color: var(--color-texto-principal);
+    transition: color 0.3s, transform 0.3s;
+}
+
+/* Footer (Fondo fijo oscuro para contraste) */
+footer {
+    background-color: #212529 !important; /* Gris oscuro fijo */
+}
+
+/* Evitar que el primer elemento de la página se oculte bajo el navbar */
+section:not(#inicio) {
+    /* El padding y margin se manejan en el .container-bloques */
 }

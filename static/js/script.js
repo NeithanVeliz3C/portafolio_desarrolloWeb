@@ -9,8 +9,8 @@
 
 /**
  * Función para manejar el estado 'activo' de los enlaces del navbar.
- * Utiliza 'this' para identificar el enlace clickeado.
- * @param {HTMLAnchorElement} elementoNav - El elemento 'a' del navbar que fue clickeado.
+ * Utiliza 'this' para identificar el enlace clickeado (Requisito 5).
+ * @param {HTMLAnchorElement} elementoNav - El elemento 'a' del navbar que fue clickeado (usando this).
  */
 function manejarNavActivo(elementoNav) {
     // Remover la clase 'activo' de todos los enlaces
@@ -20,34 +20,23 @@ function manejarNavActivo(elementoNav) {
 
     // Agregar la clase 'activo' al enlace clickeado (usando 'this')
     elementoNav.classList.add('activo');
-
-    // Desplazamiento suave (Scroll Smooth)
-    const targetId = elementoNav.getAttribute('href').substring(1); // Obtiene 'inicio', 'sobre-mi', etc.
-    const targetElement = document.getElementById(targetId);
-
-    if (targetElement) {
-        // Previene el comportamiento por defecto del ancla
-        event.preventDefault();
-
-        // Usa scrollIntoView para el desplazamiento suave
-        targetElement.scrollIntoView({
-            behavior: 'smooth'
-        });
-    }
 }
 
 // Función para actualizar el estado activo al hacer scroll
 window.addEventListener('scroll', () => {
     const secciones = document.querySelectorAll('main section');
-    const scrollPos = window.scrollY + 100; // Agregar un offset para mejor detección
+    const scrollPos = window.scrollY + 100; // Offset
 
     secciones.forEach(seccion => {
-        if (scrollPos >= seccion.offsetTop && scrollPos < (seccion.offsetTop + seccion.offsetHeight)) {
-            // Encuentra el enlace correspondiente a la sección actual
-            const navLink = document.querySelector(`.navbar-nav a[href="#${seccion.id}"]`);
+        const top = seccion.offsetTop;
+        const bottom = top + seccion.offsetHeight;
+        const id = seccion.id;
+
+        if (scrollPos >= top && scrollPos < bottom) {
+            const navLink = document.querySelector(`.navbar-nav a[href="#${id}"]`);
             
-            // Si el enlace existe, simula el click para activar el estado (sin el comportamiento de scroll)
             if (navLink && !navLink.classList.contains('activo')) {
+                // Simular la acción para actualizar el estado
                 document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
                     link.classList.remove('activo');
                 });
@@ -63,8 +52,8 @@ window.addEventListener('scroll', () => {
 // ===================================================================
 
 /**
- * Efecto onmouseover y onmouseout con JS (Requisito 6)
- * Cambia el color del título principal.
+ * Efecto onmouseover y onmouseout con JS (Requisito 6).
+ * Cambia el color del título principal usando 'this'.
  * @param {HTMLElement} elemento - El elemento que dispara el evento (usando this).
  * @param {string} color - El color CSS a aplicar.
  */
@@ -78,105 +67,81 @@ function cambiarColorTitulo(elemento, color) {
  * @param {HTMLButtonElement} boton - El botón que dispara el evento (usando this).
  */
 function agregarMensaje(boton) {
-    // Detiene la función si ya existe un mensaje
-    if (document.getElementById('dato-curioso-mensaje')) {
-        return;
+    const contenedor = boton.closest('.bloque-contenido');
+
+    // Remover mensaje anterior si existe (Manipulación del DOM con 'this')
+    const mensajeAnterior = contenedor.querySelector('#mensaje-lema');
+    if (mensajeAnterior) {
+        mensajeAnterior.remove();
+        boton.textContent = 'Mostrar Lema'; // Restaurar texto del botón
+        return; // Detener si ya existe (funciona como toggle)
     }
 
     // Crear el nuevo elemento (párrafo)
     const nuevoMensaje = document.createElement('p');
-    nuevoMensaje.id = 'dato-curioso-mensaje';
-    nuevoMensaje.className = 'mt-3 fw-bold texto-claro animate__animated animate__fadeIn'; // Clases de Bootstrap y animación
-    nuevoMensaje.style.color = 'yellow';
-    nuevoMensaje.innerHTML = '👉 **Dato Curioso**: Mi fuerte interés por el hardware me permite abordar la programación desde una perspectiva integral.';
+    nuevoMensaje.id = 'mensaje-lema';
+    nuevoMensaje.className = 'mt-3 fst-italic';
+    nuevoMensaje.style.color = 'var(--color-principal)';
+    nuevoMensaje.textContent = '🧠 Mi lema: "Siempre hay una mejor forma de hacer las cosas. Búscala."';
 
-    // Insertar el elemento justo después del botón
-    boton.parentNode.insertBefore(nuevoMensaje, boton.nextSibling);
+    // Insertar el elemento justo antes del botón
+    boton.parentNode.insertBefore(nuevoMensaje, boton);
 
-    // Opcional: Remover el mensaje después de 5 segundos
-    setTimeout(() => {
-        const mensajeExistente = document.getElementById('dato-curioso-mensaje');
-        if (mensajeExistente) {
-            mensajeExistente.classList.replace('animate__fadeIn', 'animate__fadeOut');
-            mensajeExistente.addEventListener('animationend', () => {
-                mensajeExistente.remove();
-            }, { once: true });
-        }
-    }, 5000);
+    // Modificar el texto del botón (Manipulación con 'this')
+    boton.textContent = 'Ocultar Lema';
 }
 
-/**
- * Función para remover un elemento padre del DOM (Requisito 7).
- * Utiliza 'this' para identificar el elemento.
- * @param {HTMLButtonElement} boton - El botón que dispara el evento (usando this).
- */
-function removerFooter(boton) {
-    const footerElement = boton.previousElementSibling; // El blockquote
-    const mensaje = document.createElement('p');
-    mensaje.className = 'text-danger fw-bold mt-3';
-    mensaje.textContent = '❌ ¡Contacto Oculto! Por favor, recarga la página para restaurarlo.';
-    
-    // Remover el elemento (el blockquote)
-    if (footerElement) {
-        footerElement.remove();
-        boton.replaceWith(mensaje); // Reemplazar el botón con el mensaje
-    }
-}
-
-/**
- * Efecto onmouseover para botones de servicio (Requisito 6).
- * Modifica el elemento usando 'this'.
- * @param {HTMLAnchorElement} boton - El botón que dispara el evento.
- */
-function aplicarEfectoHover(boton) {
-    boton.classList.replace('btn-outline-primary', 'btn-danger');
-    boton.textContent = '¡Ver Ahora!';
-}
-
-/**
- * Efecto onmouseout para botones de servicio (Requisito 6).
- * Modifica el elemento usando 'this'.
- * @param {HTMLAnchorElement} boton - El botón que dispara el evento.
- */
-function revertirEfectoHover(boton) {
-    boton.classList.replace('btn-danger', 'btn-outline-primary');
-    boton.textContent = 'Más Info';
-}
-
-/**
- * Efecto onmouseover (hover) con JS en los logos de clientes (Requisito 6).
- * @param {HTMLElement} elemento - El div del logo (usando this).
- */
-function resaltarLogo(elemento) {
-    elemento.style.transform = 'scale(1.1)';
-    elemento.style.boxShadow = '0 0 15px var(--color-principal)';
-}
-
-/**
- * Efecto onmouseout (hover) con JS en los logos de clientes (Requisito 6).
- * @param {HTMLElement} elemento - El div del logo (usando this).
- */
-function normalizarLogo(elemento) {
-    elemento.style.transform = 'scale(1.0)';
-    elemento.style.boxShadow = '0 .125rem .25rem rgba(0,0,0,.075)'; // Sombra de Bootstrap
-}
-
-/**
- * Manejo del evento onchange para cambiar el tema del sitio (Requisito 5).
- * Modifica la clase del body.
- * @param {string} tema - El valor seleccionado ('claro' u 'oscuro').
- */
-function cambiarTema(tema) {
-    const body = document.body;
-    if (tema === 'oscuro') {
-        body.classList.add('tema-oscuro');
-    } else {
-        body.classList.remove('tema-oscuro');
-    }
-}
 
 // ===================================================================
-// 3. INICIALIZACIÓN
+// 3. EFECTOS HOVER CON JS (USANDO THIS)
+// ===================================================================
+
+/**
+ * Efecto onmouseover/onmouseout para las habilidades (Requisito 6).
+ * @param {HTMLElement} elemento - El badge (usando this).
+ * @param {boolean} esMouseOver - Si es true (mouseover), si es false (mouseout).
+ */
+function resaltarHabilidad(elemento, esMouseOver) {
+    elemento.style.transition = 'transform 0.3s, background-color 0.3s';
+    if (esMouseOver) {
+        elemento.style.transform = 'scale(1.1)';
+        elemento.style.backgroundColor = 'var(--color-secundario)'; // Cambia a un color diferente
+    } else {
+        elemento.style.transform = 'scale(1.0)';
+        elemento.style.backgroundColor = 'var(--bs-success)'; // Vuelve al color original de Bootstrap
+    }
+}
+
+/**
+ * Efecto onmouseover/onmouseout para las tarjetas de Portafolio (Requisito 6).
+ * @param {HTMLElement} elemento - La tarjeta (usando this).
+ */
+function resaltarCard(elemento) {
+    elemento.style.border = '2px solid var(--color-principal)';
+}
+
+function normalizarCard(elemento) {
+    elemento.style.border = '1px solid var(--color-sombra)';
+}
+
+/**
+ * Efecto onmouseover/onmouseout para los iconos de Contacto (Requisito 6).
+ * @param {HTMLElement} elemento - El enlace del icono (usando this).
+ */
+function resaltarIcono(elemento) {
+    elemento.style.color = 'var(--color-principal)';
+    elemento.style.transform = 'scale(1.2) rotate(5deg)';
+}
+
+function normalizarIcono(elemento) {
+    elemento.style.color = 'var(--color-texto-principal)';
+    elemento.style.transform = 'scale(1.0) rotate(0deg)';
+}
+
+// Nota: La función 'cambiarTema' ha sido eliminada.
+
+// ===================================================================
+// 4. INICIALIZACIÓN
 // ===================================================================
 
 // Asegura que al cargar la página el estado de la navegación sea correcto
