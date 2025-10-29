@@ -1,34 +1,266 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Neithan Véliz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="static/css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
-    <title>Portafolio Neithan Véliz</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Neithan Véliz</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="barra-navegacion">
+        <div class="container">
+            <a class="navbar-brand" href="#inicio">
+                <i class="fas fa-code"></i> Neithan Véliz <span class="badge bg-info">Técnico en Programación</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="#">Sobre mí</a>
-                    <a class="nav-link" href="#">Servicios</a>
-                    <a class="nav-link" href="#">Clientes</a>
-                    <a class="nav-link" href="#">Habilidades</a>
-                </div>
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link activo" href="#inicio" onclick="manejarNavActivo(this)">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre-mi" onclick="manejarNavActivo(this)">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicios" onclick="manejarNavActivo(this)">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#clientes" onclick="manejarNavActivo(this)">Clients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#habilidades" onclick="manejarNavActivo(this)">Skills</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
+
+    <main>
+        <section id="inicio" class="d-flex align-items-center justify-content-center text-center altura-pantalla">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="display-3 fw-bold texto-claro" onmouseover="cambiarColorTitulo(this, 'gold')" onmouseout="cambiarColorTitulo(this, '#f8f9fa')">
+                            ¡Hola! Soy Neithan Véliz 👋
+                        </h1>
+                        <p class="lead mb-4 texto-claro">
+                            Técnico en programación con un fuerte enfoque en el desarrollo de software y hardware.
+                        </p>
+                        <a href="#sobre-mi" class="btn btn-primary btn-lg cta-btn">
+                            Conoce mi Perfil Profesional
+                        </a>
+                        <button class="btn btn-secondary btn-sm ms-3" onclick="agregarMensaje(this)">
+                            <i class="fas fa-lightbulb"></i> Ver Dato Curioso
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="sobre-mi" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5 titulo-seccion">✨ Sobre Mí y Perfil Profesional</h2>
+                <div class="row align-items-center">
+                    <div class="col-md-4 text-center">
+                                                <img src="placeholder-perfil.jpg" class="img-fluid rounded-circle shadow-lg" alt="Fotografía de Perfil" id="foto-perfil">
+                        <div class="mt-3">
+                            <label for="tema-color" class="form-label">Cambiar Tema</label>
+                            <select class="form-select" id="tema-color" onchange="cambiarTema(this.value)">
+                                <option value="claro">Claro (Predeterminado)</option>
+                                <option value="oscuro">Oscuro</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <blockquote class="blockquote">
+                            <p class="mb-4">
+                                Estudiante técnico de programación en computación, con un fuerte enfoque tanto en **desarrollo de software** como en **hardware**. Me caracterizo por ser una persona **autodidacta**, **determinada** y **profesional**, siempre buscando nuevas formas de aprender y mejorar mis habilidades.
+                            </p>
+                            <footer class="blockquote-footer">Contacto:
+                                <i class="fas fa-phone-alt"></i> +56 9 4674 5059 |
+                                <i class="fas fa-envelope"></i> neithan.veliz1@gmail.com
+                            </footer>
+                        </blockquote>
+                        <button class="btn btn-danger btn-sm mt-3" onclick="removerFooter(this)">
+                            <i class="fas fa-trash-alt"></i> Ocultar Contacto
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="servicios" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5 titulo-seccion">🛠️ Servicios y Ofertas (Área Estudiantil)</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card tarjeta-servicio shadow-sm">
+                            <div class="card-body text-center">
+                                <i class="fas fa-headset fa-3x mb-3 texto-primario"></i>
+                                <h5 class="card-title">Soporte Técnico de Nivel 1</h5>
+                                <p class="card-text">
+                                    Asistencia básica para problemas de software y hardware, configuración de sistemas operativos (Windows/Linux) y optimización de rendimiento.
+                                </p>
+                                <a href="#" class="btn btn-outline-primary" onmouseover="aplicarEfectoHover(this)" onmouseout="revertirEfectoHover(this)">
+                                    Más Info
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card tarjeta-servicio shadow-sm">
+                            <div class="card-body text-center">
+                                <i class="fas fa-database fa-3x mb-3 texto-primario"></i>
+                                <h5 class="card-title">Diseño Básico de Bases de Datos</h5>
+                                <p class="card-text">
+                                    Creación y administración inicial de bases de datos simples (ej. SQL, Oracle básico), enfocándose en la estructura y la integridad de los datos.
+                                </p>
+                                <a href="#" class="btn btn-outline-primary" onmouseover="aplicarEfectoHover(this)" onmouseout="revertirEfectoHover(this)">
+                                    Más Info
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card tarjeta-servicio shadow-sm">
+                            <div class="card-body text-center">
+                                <i class="fas fa-laptop-code fa-3x mb-3 texto-primario"></i>
+                                <h5 class="card-title">Proyectos Web Estudiantiles (HTML/CSS/JS)</h5>
+                                <p class="card-text">
+                                    Desarrollo de landing pages o sitios web estáticos utilizando HTML, CSS y JavaScript, con integración de Bootstrap.
+                                </p>
+                                <a href="#" class="btn btn-outline-primary" onmouseover="aplicarEfectoHover(this)" onmouseout="revertirEfectoHover(this)">
+                                    Más Info
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="clientes" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5 titulo-seccion">🤝 Clientes y Experiencias Educativas</h2>
+                <div class="row text-center align-items-center">
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="logo-cliente p-3 border rounded shadow-sm hover-js" onmouseover="resaltarLogo(this)" onmouseout="normalizarLogo(this)">
+                            <i class="fas fa-university fa-2x texto-secundario"></i>
+                            <p class="mt-2 fw-bold">INACAP</p>
+                            <small class="text-muted">Alternancia 2025</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="logo-cliente p-3 border rounded shadow-sm hover-js" onmouseover="resaltarLogo(this)" onmouseout="normalizarLogo(this)">
+                            <i class="fas fa-trophy fa-2x texto-secundario"></i>
+                            <p class="mt-2 fw-bold">Concurso HP - AMD</p>
+                            <small class="text-muted">Finalista 2024</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="logo-cliente p-3 border rounded shadow-sm hover-js" onmouseover="resaltarLogo(this)" onmouseout="normalizarLogo(this)">
+                            <i class="fas fa-certificate fa-2x texto-secundario"></i>
+                            <p class="mt-2 fw-bold">IBM SkillsBuild</p>
+                            <small class="text-muted">Cursos y Credenciales</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="logo-cliente p-3 border rounded shadow-sm hover-js" onmouseover="resaltarLogo(this)" onmouseout="normalizarLogo(this)">
+                            <i class="fas fa-graduation-cap fa-2x texto-secundario"></i>
+                            <p class="mt-2 fw-bold">Liceo Comercial V.V.H.</p>
+                            <small class="text-muted">Educación Técnica</small>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-center mt-4">
+                    Estas experiencias demuestran mi **determinación y profesionalismo** en el ámbito académico y competitivo, desarrollando tanto habilidades técnicas como blandas.
+                </p>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="habilidades" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5 titulo-seccion">💡 Habilidades Técnicas y Blandas</h2>
+
+                <h4 class="mb-3">Habilidades Técnicas</h4>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <p class="mb-1">Administración de BD (Oracle Básico / SQL)</p>
+                        <div class="progress" style="height: 25px;">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" id="barra-bd">
+                                70%
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="mb-1">Manejo de Sistemas Operativos (Windows/Linux)</p>
+                        <div class="progress" style="height: 25px;">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" id="barra-so">
+                                85%
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="mb-1">Desarrollo Web (Python / HTML / CSS / JS)</p>
+                        <div class="progress" style="height: 25px;">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" id="barra-web">
+                                65%
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="mb-1">Soporte TI y Mantenimiento de Hardware</p>
+                        <div class="progress" style="height: 25px;">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" id="barra-soporte">
+                                90%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="mt-5 mb-3">Habilidades Blandas (Soft Skills)</h4>
+                <div class="d-flex flex-wrap gap-2">
+                    <span class="badge bg-primary fs-6 habilidad-blanda">
+                        <i class="fas fa-lightbulb"></i> Pensamiento Crítico
+                    </span>
+                    <span class="badge bg-secondary fs-6 habilidad-blanda">
+                        <i class="fas fa-user-tie"></i> Profesionalismo
+                    </span>
+                    <span class="badge bg-info text-dark fs-6 habilidad-blanda">
+                        <i class="fas fa-book-open"></i> Autodidacta
+                    </span>
+                    <span class="badge bg-success fs-6 habilidad-blanda">
+                        <i class="fas fa-check-circle"></i> Determinado
+                    </span>
+                    <span class="badge bg-warning text-dark fs-6 habilidad-blanda">
+                        <i class="fas fa-tools"></i> Manejo de Office (Excel, Word, PP)
+                    </span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p class="mb-0">
+            &copy; 2025 Neithan Véliz | Desarrollado con HTML, CSS, JavaScript y Bootstrap.
+        </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="static/js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-4cm3l0YpH6u8kK5e1r8jz1H3jz6k5e1r8jz1H3jz6k5e1r8jz1H3jz6k5e1r8jz1H"
-        crossorigin="anonymous"></script>
 </body>
 </html>
