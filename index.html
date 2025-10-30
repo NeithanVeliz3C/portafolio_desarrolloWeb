@@ -1,229 +1,369 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio Técnico - Neithan Véliz</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="estilos.css">
-</head>
-<body id="cuerpo-pagina">
 
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="barra-navegacion">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portafolio | Neithan Véliz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <link rel="stylesheet" href="static/css/style.css" />
+</head>
+
+<body id="cuerpo-pagina">
+    <nav class="navbar navbar-expand-lg fixed-top" id="barra-navegacion">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#inicio">N. VÉLIZ</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand fw-bold" href="#inicio">NEITHAN VÉLIZ</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+                aria-controls="menuPrincipal" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="menuPrincipal">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link activo" href="#inicio" onclick="manejarNavActivo(this)">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#sobre-mi" onclick="manejarNavActivo(this)">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#experiencia" onclick="manejarNavActivo(this)">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#formacion" onclick="manejarNavActivo(this)">Education</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#portafolio" onclick="manejarNavActivo(this)">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contacto" onclick="manejarNavActivo(this)">Contact</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link activo" href="#inicio" onclick="manejarNavActivo(this)">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre-mi" onclick="manejarNavActivo(this)">Sobre Mí</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#habilidades" onclick="manejarNavActivo(this)">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portafolio" onclick="manejarNavActivo(this)">Portafolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#detalles" onclick="manejarNavActivo(this)">Detalles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto" onclick="manejarNavActivo(this)">Contacto</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <main class="container-bloques py-5">
-        
-        <section id="inicio" class="bloque-seccion altura-pantalla text-center d-flex align-items-center justify-content-center">
-            <div class="contenido-bloque">
-                <h1 class="display-3 fw-bold" onmouseover="cambiarColorTitulo(this, 'var(--color-principal)')" onmouseout="cambiarColorTitulo(this, 'var(--color-texto-principal)')">
-                    Neithan Véliz
+    <main class="container py-5">
+        <section id="inicio" class="text-center d-flex align-items-center justify-content-center vh-100 hero-section">
+            <div>
+                <h1 class="display-1 fw-bolder mb-3">
+                    <span class="animar-titulo-hero" onmouseover="resaltarNombre(this)"
+                        onmouseout="normalizarNombre(this)">NEITHAN VÉLIZ</span>
                 </h1>
-                <p class="lead mb-4 texto-principal">
+                <p class="lead mb-4 subtitulo-hero">
                     Técnico en Programación y Desarrollador Autodidacta.
                 </p>
-                <a href="#portafolio" class="btn btn-primary btn-lg cta-btn">
-                    Ver Proyectos <i class="fas fa-arrow-right"></i>
+                <a href="#portafolio" class="btn btn-cta btn-lg">
+                    Ver Proyectos <i class="fas fa-arrow-right ms-2"></i>
                 </a>
             </div>
         </section>
 
-        <section id="sobre-mi" class="bloque-seccion py-5">
-            <div class="row g-4">
-                <div class="col-lg-6 bloque-contenido p-4">
-                    <h2 class="titulo-bloque"><i class="fas fa-user-circle"></i> Sobre Mí</h2>
-                    <hr>
-                    <p class="parrafo-principal">
-                        Estudiante técnico de programación con un fuerte enfoque en el desarrollo de software y hardware.
-                        Soy una persona **autodidacta**, **determinada** y **profesional**, siempre en búsqueda de mejorar mis habilidades en el sector TI.
-                    </p>
-                    <p class="text-muted small">
-                        *Haz click aquí para añadir una nota temporal (Manipulación del DOM con `this`):*
-                        <button class="btn btn-sm btn-info mt-2" onclick="agregarMensaje(this)">
-                            Mostrar Lema
-                        </button>
-                    </p>
-                </div>
-
-                <div id="habilidades" class="col-lg-6 bloque-contenido p-4">
-                    <h2 class="titulo-bloque"><i class="fas fa-cogs"></i> Skills</h2>
-                    <hr>
-                    <h5 class="mt-4">Habilidades Técnicas:</h5>
-                    <div class="d-flex flex-wrap gap-2" id="lista-habilidades">
-                        <span class="badge bg-success habilidad-badge" onmouseover="resaltarHabilidad(this, true)" onmouseout="resaltarHabilidad(this, false)">
-                            <i class="fas fa-terminal"></i> Manejo SO (Windows/Linux)
-                        </span>
-                        <span class="badge bg-success habilidad-badge" onmouseover="resaltarHabilidad(this, true)" onmouseout="resaltarHabilidad(this, false)">
-                            <i class="fas fa-database"></i> Administración BD (Oracle/SQL)
-                        </span>
-                        <span class="badge bg-success habilidad-badge" onmouseover="resaltarHabilidad(this, true)" onmouseout="resaltarHabilidad(this, false)">
-                            <i class="fas fa-wrench"></i> Soporte TI y Hardware
-                        </span>
-                        <span class="badge bg-success habilidad-badge" onmouseover="resaltarHabilidad(this, true)" onmouseout="resaltarHabilidad(this, false)">
-                            <i class="fas fa-code"></i> Desarrollo Web (Python/HTML/CSS/JS)
-                        </span>
-                    </div>
-
-                    <h5 class="mt-4">Habilidades Blandas:</h5>
-                    <div class="d-flex flex-wrap gap-2">
-                        <span class="badge bg-secondary habilidad-blanda">Pensamiento Crítico</span>
-                        <span class="badge bg-secondary habilidad-blanda">Profesionalismo</span>
-                        <span class="badge bg-secondary habilidad-blanda">Autodidacta</span>
-                        <span class="badge bg-secondary habilidad-blanda">Determinado</span>
+        <section id="sobre-mi" class="py-5">
+            <h2 class="text-center mb-5 titulo-seccion animacion-entrada">
+                01. Sobre Mí <i class="fas fa-user-circle"></i>
+            </h2>
+            <div class="row align-items-center animacion-entrada">
+                <div class="col-lg-4 text-center mb-4 mb-lg-0">
+                    <div class="perfil-foto shadow-lg mx-auto" onmouseover="escalarFoto(this)"
+                        onmouseout="normalizarFoto(this)">
+                        <img src="resources/img/1000057614.jpg" alt="Fotografía de perfil de Neithan Véliz"
+                            class="img-fluid" style="border-radius: 50%; width: 100%; height: 100%; object-fit: cover;"/>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section id="experiencia" class="bloque-seccion py-5">
-            <h2 class="titulo-seccion"><i class="fas fa-briefcase"></i> Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item bloque-contenido p-4">
-                    <span class="timeline-date">2025</span>
-                    <h4 class="fw-bold">Alternancia en Inacap</h4>
-                    <p class="mb-1">Participación activa en clases intensivas en Inacap.</p>
-                    <p class="text-muted small">Aprendizaje de nivel intermedio de **Python** (desarrollo web) y manejo básico de **Oracle** (administración de BD).</p>
-                </div>
-                <div class="timeline-item bloque-contenido p-4">
-                    <span class="timeline-date">2024</span>
-                    <h4 class="fw-bold">Concurso HP - AMD (Finalista)</h4>
-                    <p class="mb-1">Participante y finalista en concurso de programación a nivel de curso.</p>
-                    <p class="text-muted small">Obtención de experiencia en competencias y retroalimentación en habilidades blandas.</p>
-                </div>
-            </div>
-        </section>
-        
-        <section id="formacion" class="bloque-seccion py-5">
-            <h2 class="titulo-seccion"><i class="fas fa-graduation-cap"></i> Education & Certifications</h2>
-            <div class="row g-4">
-                <div class="col-lg-6 bloque-contenido p-4">
-                    <h4 class="fw-bold"><i class="fas fa-school"></i> Formación Académica</h4>
-                    <hr>
-                    <p class="fw-bold mb-1">Técnico en Programación en Computación</p>
-                    <p class="mb-1">Liceo Comercial Vate Vicente Huidobro</p>
-                    <p class="text-muted small">2022 - 2025 (Estimado)</p>
-                </div>
-
-                <div id="certificaciones" class="col-lg-6 bloque-contenido p-4">
-                    <h4 class="fw-bold"><i class="fas fa-certificate"></i> Certificaciones</h4>
-                    <hr>
-                    <p class="fw-bold mb-1">Cursos y Credenciales de Variadas Habilidades</p>
-                    <p class="mb-1">IBM SkillsBuild</p>
-                    <p class="text-muted small">2022 - 2025</p>
+                <div class="col-lg-8">
+                    <p class="lead fw-bold">Perfil Profesional</p>
+                    <p>
+                        Estudiante técnico de programación en computación, con un fuerte
+                        enfoque tanto en el desarrollo de **software** como en
+                        **hardware**. Me caracterizo por ser una persona autodidacta,
+                        determinada y profesional, siempre buscando nuevas formas de
+                        aprender y mejorar mis habilidades.
+                    </p>
+                    <p class="small text-muted">
+                        Actualmente residiendo en Pje. Riñihue 0257, La Granja.
+                    </p>
                 </div>
             </div>
         </section>
 
-        <section id="portafolio" class="bloque-seccion py-5">
-            <h2 class="titulo-seccion"><i class="fas fa-code-branch"></i> Portfolio (Proyectos en GitHub)</h2>
-            <div class="row g-4">
+        <section id="habilidades" class="py-5">
+            <h2 class="text-center mb-5 titulo-seccion animacion-entrada">
+                02. Skills & Expertise <i class="fas fa-cogs"></i>
+            </h2>
+
+            <h4 class="fw-bold mb-3 animacion-entrada">Habilidades Técnicas:</h4>
+            <div class="row mb-4 g-3 animacion-entrada">
+                <div class="col-md-6">
+                    <p class="mb-1 fw-bold">HTML & CSS (Nivel Intermedio)</p>
+                    <div class="progress" role="progressbar">
+                        <div class="progress-bar barra-progreso-animada" data-target-width="70%"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <p class="mb-1 fw-bold">Python (Básico)</p>
+                    <div class="progress" role="progressbar">
+                        <div class="progress-bar barra-progreso-animada" data-target-width="45%"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <p class="mb-1 fw-bold">JavaScript (Básico)</p>
+                    <div class="progress" role="progressbar">
+                        <div class="progress-bar barra-progreso-animada" data-target-width="40%"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <p class="mb-1 fw-bold">Administración de BD (Oracle/SQL)</p>
+                    <div class="progress" role="progressbar">
+                        <div class="progress-bar barra-progreso-animada" data-target-width="55%"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <p class="mb-1 fw-bold">Manejo de SO (Windows y Linux)</p>
+                    <div class="progress" role="progressbar">
+                        <div class="progress-bar barra-progreso-animada" data-target-width="65%"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <p class="mb-1 fw-bold">Soporte TI</p>
+                    <div class="progress" role="progressbar">
+                        <div class="progress-bar barra-progreso-animada" data-target-width="75%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="fw-bold mb-3 mt-4 animacion-entrada">
+                Habilidades Blandas:
+            </h4>
+            <div class="d-flex flex-wrap gap-2 animacion-entrada">
+                <span class="badge skill-badge" onmouseover="resaltarBadge(this)"
+                    onmouseout="normalizarBadge(this)">Pensamiento Crítico</span>
+                <span class="badge skill-badge" onmouseover="resaltarBadge(this)"
+                    onmouseout="normalizarBadge(this)">Autodidacta</span>
+                <span class="badge skill-badge" onmouseover="resaltarBadge(this)"
+                    onmouseout="normalizarBadge(this)">Profesional</span>
+                <span class="badge skill-badge" onmouseover="resaltarBadge(this)"
+                    onmouseout="normalizarBadge(this)">Manejo de herramientas (Office)</span>
+            </div>
+        </section>
+
+        <section id="portafolio" class="py-5">
+            <h2 class="text-center mb-5 titulo-seccion animacion-entrada">
+                03. Portafolio de Proyectos <i class="fas fa-laptop-code"></i>
+            </h2>
+            <div class="row g-4 animacion-entrada">
                 <div class="col-md-6 col-lg-4">
-                    <div class="card tarjeta-portafolio shadow-sm" onmouseover="resaltarCard(this)" onmouseout="normalizarCard(this)">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Landing Page con Bootstrap</h5>
-                            <p class="card-text small text-muted">Proyecto estático simple, enfocado en maquetación rápida y responsive design.</p>
-                            <a href="https://github.com/tu-usuario/nombre-del-repo-1" target="_blank" class="btn btn-outline-primary">
-                                Ver en GitHub <i class="fab fa-github"></i>
-                            </a>
+                    <a href="https://github.com/NeithanVeliz3C/Desarrollo-de-App-Web-4C/tree/main/JS/14_onchange"
+                        target="_blank" class="card-link" onmouseover="escalarCard(this)"
+                        onmouseout="normalizarCard(this)">
+                        <div class="card proyecto-card shadow-sm">
+                            <div class="card-img-top img-placeholder text-center py-5">
+                                <i class="fas fa-globe fa-3x"></i>
+                                <p class="mb-0 mt-2 fw-bold">Desarrollo Web</p>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold">Maquetación con Bootstrap</h5>
+                                <p class="card-text small text-muted">
+                                    Proyecto frontend responsivo con HTML/CSS/JS.
+                                </p>
+                                <span class="repo-link"><i class="fab fa-github me-1"></i> Ver Repositorio</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="https://github.com/NeithanVeliz3C/P.O.O/blob/main/libro_clases.py" target="_blank"
+                        class="card-link" onmouseover="escalarCard(this)" onmouseout="normalizarCard(this)">
+                        <div class="card proyecto-card shadow-sm">
+                            <div class="card-img-top img-placeholder text-center py-5">
+                                <i class="fab fa-python fa-3x"></i>
+                                <p class="mb-0 mt-2 fw-bold">Script de Automatización</p>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold">Ejemplo de Lógica Python</h5>
+                                <p class="card-text small text-muted">
+                                    Demostración de conocimientos básicos en Python.
+                                </p>
+                                <span class="repo-link"><i class="fab fa-github me-1"></i> Ver Repositorio</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="https://github.com/NeithanVeliz3C/adm-base-de-datos/tree/main/cliente" target="_blank"
+                        class="card-link" onmouseover="escalarCard(this)" onmouseout="normalizarCard(this)">
+                        <div class="card proyecto-card shadow-sm">
+                            <div class="card-img-top img-placeholder text-center py-5">
+                                <i class="fas fa-database fa-3x"></i>
+                                <p class="mb-0 mt-2 fw-bold">Esquema BD</p>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold">Modelo MySQL</h5>
+                                <p class="card-text small text-muted">
+                                    Prueba de experiencia en administración de BD.
+                                </p>
+                                <span class="repo-link"><i class="fab fa-github me-1"></i> Ver Repositorio</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="detalles" class="py-5">
+            <h2 class="text-center mb-5 titulo-seccion animacion-entrada">
+                04. Historial & Detalles <i class="fas fa-book-reader"></i>
+            </h2>
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <div class="detalle-bloque p-4 shadow-sm animacion-entrada">
+                        <h4 class="fw-bold mb-3">
+                            <i class="fas fa-briefcase me-2"></i>Experiencia
+                        </h4>
+
+                        <div class="timeline-item">
+                            <span class="timeline-date">2025</span>
+                            <h5 class="fw-bold mb-1">Alternancia en Inacap</h5>
+                            <p class="small text-muted mb-0">
+                                Clases intensivas de Python (desarrollo web) y manejo básico
+                                de Oracle (administración de BD).
+                            </p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-date">2024</span>
+                            <h5 class="fw-bold mb-1">Concurso HP - AMD (Finalista)</h5>
+                            <p class="small text-muted mb-0">
+                                Participación en concurso de programación.
+                            </p>
+                        </div>
+
+                        <hr class="my-4" />
+
+                        <h4 class="fw-bold mb-3">
+                            <i class="fas fa-graduation-cap me-2"></i>Educación
+                        </h4>
+                        <div class="timeline-item">
+                            <span class="timeline-date">2022-2025</span>
+                            <h5 class="fw-bold mb-1">
+                                Técnico en Programación en Computación
+                            </h5>
+                            <p class="small text-muted mb-0">
+                                Liceo Comercial Vate Vicente Huidobro.
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card tarjeta-portafolio shadow-sm" onmouseover="resaltarCard(this)" onmouseout="normalizarCard(this)">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Script de Automatización (Python)</h5>
-                            <p class="card-text small text-muted">Ejemplo de script en Python para manejar archivos o datos de forma sencilla.</p>
-                            <a href="https://github.com/tu-usuario/nombre-del-repo-2" target="_blank" class="btn btn-outline-primary">
-                                Ver en GitHub <i class="fab fa-github"></i>
-                            </a>
+
+                <div class="col-lg-6">
+                    <div class="detalle-bloque p-4 shadow-sm animacion-entrada">
+                        <h4 class="fw-bold mb-3">
+                            <i class="fas fa-certificate me-2"></i>Certificaciones
+                        </h4>
+                        <ul class="list-unstyled">
+                            <li>
+                                <h5 class="fw-bold mb-1">
+                                    Cursos y Credenciales de Variadas Habilidades
+                                </h5>
+                                <p class="small text-muted mb-0">
+                                    Institución: IBM SkillsBuild.
+                                </p>
+                                <p class="small text-muted">Fecha: 2022 - 2025.</p>
+                            </li>
+                        </ul>
+                        <hr class="my-4" />
+
+                        <h4 class="fw-bold mb-3">
+                            <i class="fas fa-building me-2"></i>Organizaciones / Servicios y
+                            Clientes
+                        </h4>
+                        <ul class="list-unstyled">
+                            <li>
+                                <h5 class="fw-bold mb-1">Organización y servicio</h5>
+                                <p class="small text-muted mb-0">
+                                    Participación en preparación, instalación y configuración de
+                                    sala de prototipado 3D.
+                                </p>
+                            </li>
+                            <li class="mt-3">
+                                <h5 class="fw-bold mb-1">
+                                    Servicios: Soporte TI & Desarrollo Inicial
+                                </h5>
+                                <p class="small text-muted mb-0">
+                                    Oferta como estudiante: Asistencia técnica de hardware y
+                                    desarrollo web.
+                                </p>
+                            </li>
+                        </ul>
+                        <hr class="my-4" />
+
+                        <h4 class="fw-bold mb-3">
+                            <i class="fas fa-handshake me-2"></i> 9. Referencias
+                        </h4>
+                        <p class="mb-1">Dany Hernández - Profesor de programación</p>
+                        <p class="mb-1">Mauricio Medel - Profesor de programación</p>
+                        <p class="small text-muted">
+                            Disponibles a solicitud para validar desempeño académico y
+                            profesional.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="py-5 text-center">
+            <h2 class="text-center mb-5 titulo-seccion animacion-entrada">
+                05. Contáctame <i class="fas fa-envelope"></i>
+            </h2>
+            <div class="row animacion-entrada">
+                <div class="col-lg-8 offset-lg-2">
+                    <p class="lead mb-4">
+                        Estoy disponible para nuevos proyectos y oportunidades. Contáctame
+                        a través de mis canales o redes.
+                    </p>
+                    <div class="d-flex justify-content-center gap-4 mb-5 info-contacto">
+                        <div>
+                            <i class="fas fa-envelope fa-2x mb-2"></i>
+                            <p class="mb-0 fw-bold">Email</p>
+                            <a href="mailto:neithan.veliz1@gmail.com"
+                                class="text-decoration-none">neithan.veliz1@gmail.com</a>
+                        </div>
+                        <div>
+                            <i class="fas fa-phone-alt fa-2x mb-2"></i>
+                            <p class="mb-0 fw-bold">Teléfono</p>
+                            <a href="tel:+56946745059" class="text-decoration-none">+56 9 4674 5059</a>
+                        </div>
+                        <div>
+                            <i class="fab fa-linkedin fa-2x mb-2"></i>
+                            <p class="mb-0 fw-bold">LinkedIn</p>
+                            <a href="https://linkedin.com/in/neithanveliz" target="_blank"
+                                class="text-decoration-none">Neithan Véliz</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card tarjeta-portafolio shadow-sm" onmouseover="resaltarCard(this)" onmouseout="normalizarCard(this)">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Esquema de Base de Datos (SQL)</h5>
-                            <p class="card-text small text-muted">Diseño de una base de datos relacional para un caso de estudio simple.</p>
-                            <a href="https://github.com/tu-usuario/nombre-del-repo-3" target="_blank" class="btn btn-outline-primary">
-                                Ver en GitHub <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
-        
-        <section id="organizaciones" class="bloque-seccion py-5">
-            <h2 class="titulo-seccion"><i class="fas fa-sitemap"></i> Organizaciones y Referencias</h2>
-            <div class="row g-4">
-                <div class="col-lg-6 bloque-contenido p-4">
-                    <h4 class="fw-bold"><i class="fas fa-users"></i> Participación</h4>
-                    <hr>
-                    <p class="mb-1">Club de Programación y Robótica del Liceo</p>
-                    <p class="text-muted small">Participación activa en talleres y actividades extracurriculares de desarrollo de hardware y software.</p>
-                </div>
-                <div id="referencias" class="col-lg-6 bloque-contenido p-4">
-                    <h4 class="fw-bold"><i class="fas fa-handshake"></i> Referencias</h4>
-                    <hr>
-                    <p class="mb-1">**Placeholder de Referencia (Docente / Mentor)**</p>
-                    <p class="text-muted small">Disponibles a solicitud. Contactar para más detalles sobre desempeño académico y profesional.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="contacto" class="bloque-seccion py-5">
-            <h2 class="titulo-seccion"><i class="fas fa-paper-plane"></i> Contact</h2>
-            <div class="row g-4">
-                <div class="col-lg-6 offset-lg-3 bloque-contenido p-4 text-center">
-                    <p class="lead">Estoy disponible para nuevos proyectos y oportunidades.</p>
-
-                    <p class="fw-bold mt-4">
-                        <i class="fas fa-envelope"></i> Correo: <a href="mailto:neithan.veliz1@gmail.com" class="link-contacto">neithan.veliz1@gmail.com</a>
-                    </p>
-                    <p class="fw-bold">
-                        <i class="fas fa-phone-alt"></i> Teléfono: <a href="tel:+56946745059" class="link-contacto">+56 9 4674 5059</a>
-                    </p>
-                    
-                    <div class="d-flex justify-content-center gap-4 mt-4">
-                        <a href="https://github.com/tu-usuario" target="_blank" class="icono-red hover-js" onmouseover="resaltarIcono(this)" onmouseout="normalizarIcono(this)">
-                            <i class="fab fa-github fa-2x"></i>
-                        </a>
-                        <a href="https://linkedin.com/in/neithan-veliz" target="_blank" class="icono-red hover-js" onmouseover="resaltarIcono(this)" onmouseout="normalizarIcono(this)">
-                            <i class="fab fa-linkedin fa-2x"></i>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
     </main>
 
-    <footer class="bg-dark text-white text-center py-3">
-        <p class="mb-0">
-            &copy; 2025 Neithan Véliz | Portafolio Técnico
-        </p>
+    <footer class="text-center py-4">
+        <p class="mb-0 small">&copy; 2025 Neithan Véliz | Portafolio Técnico</p>
+        <div class="d-flex justify-content-center gap-3 mt-2">
+            <a href="https://github.com/NeithanVeliz3C" target="_blank" class="text-light"
+                onmouseover="resaltarIconoFooter(this)" onmouseout="normalizarIconoFooter(this)">
+                <i class="fab fa-github fa-lg"></i>
+            </a>
+            <a href="https://linkedin.com/in/neithanveliz" target="_blank" class="text-light"
+                onmouseover="resaltarIconoFooter(this)" onmouseout="normalizarIconoFooter(this)">
+                <i class="fab fa-linkedin fa-lg"></i>
+            </a>
+        </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="static/js/script.js"></script>
 </body>
+
 </html>
